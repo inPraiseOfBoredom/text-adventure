@@ -4,5 +4,5 @@
     "types": ["node"],
     "sourceMap": true
   },
-  "files": ["src/index.ts"]
+  "include": ["src/**/*.ts"]
 }

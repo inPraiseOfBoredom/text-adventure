@@ -14,4 +14,7 @@ yarn start
 
 # While you are developing: Do a rebuild and run immediatley
 yarn dev
+
+# Alternatively you can also watch for file changes and retrigger a build automatically with:
+yarn watch
 ```
