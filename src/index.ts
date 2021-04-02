@@ -114,9 +114,7 @@ const sleep = function (ms): Promise<void> {
 };
 
 //This function should print the very first message with a delay of 3 sec
-// const displayFirstScene = function () {
-//   setTimeout(function () { console.log(firstScene); }, 3000);
-// }
+
 
 const displayFirst = async function () {
   await sleep(3000);
@@ -127,7 +125,7 @@ const displayFirst = async function () {
 
 //This function should ask the user whether they want to play
 
-const questionFirst = async function () {
+const questionFirst = async function() {
   const answerFirst = await prompt("Do you want to play? ");
   if (answerFirst === "yes") {
     var figlet = require("figlet");
@@ -138,31 +136,37 @@ const questionFirst = async function () {
         return;
       }
       console.log(data);
-      
-      
-
-      // const image = new asciiartImage({
-      //   filepath: "../assets/Night_Vale_slider.png",
-      //   alphabet: "variant4",
-      // });
-      // image.write(function (err, rendered) {
-      //   console.log(rendered);
-      // });
-      
       await displayFirst();
       await sleep(2000);
       console.log(welcome);
+      await sleep(2000);
       questionSecond();
-    });
+    });    
+  } else {
+    var figlet = require("figlet");
+    figlet.text(
+      "Goodbye!",
+      {
+        font: "Ghost",
+        horizontalLayout: "default",
+        verticalLayout: "default",
+        width: 80,
+        whitespaceBreak: true,
+      },
+      function (err, data) {
+        if (err) {
+          console.log("Something went wrong...");
+          console.dir(err);
+          return;
+        }
+        console.log(data);
+      }
+    );
+      }}
 
-    
-  }
-};
 
 const initialize = function () {
   questionFirst();
-
-  //displayFirstScene();
 };
 
 initialize();
@@ -171,11 +175,25 @@ const questionSecond = async function () {
   const answerSecond = await prompt(`Where would like to go? 
   ${locations.desert.title}
   ${locations.nightVale.title}`);
+   
   if (answerSecond == locations.desert.title) {
-    console.log(locations.desert.description);
-  } else if (answerSecond == locations.nightVale.title) {
+    console.log(locations.desert.description)
+    await sleep(2000);
+    console.log(`
+
+    Are you sure that you want to stay here? `)  ;
+  } else if (
+    answerSecond ==
+    locations.nightVale.title) {
     console.log(locations.nightVale.description);
   }
+   
 };
 
 //questionSecond();
+
+const questionThird = async function() {
+
+  
+  
+}
