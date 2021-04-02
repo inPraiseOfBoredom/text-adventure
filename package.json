@@ -15,5 +15,12 @@
     "jest": "^26.6.3",
     "ts-jest": "^26.5.4",
     "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "ascii-art": "^2.5.0",
+    "asciiart": "^1.0.0",
+    "canvas": "^2.7.0",
+    "figlet": "^1.5.0",
+    "prompt-promise": "^1.0.3"
   }
 }
