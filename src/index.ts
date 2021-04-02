@@ -29,20 +29,30 @@ let locations = {
       "The desert seems vast, even endless, and yet scientists tell us that somewhere, even now, there is snow",
   },
   nightVale: {
-    title: "Nigth Vale",
+    title: "Night Vale",
     description:
       "It is a friendly desert community, where the sun is hot, the moon is beautiful, and mysterious lights pass overhead while we all pretend to sleep.",
     organizations: {
-  elementarySchool: {
-    description:
-      "Night Vale Elementary School is the town's only public elementary school. The Night Vale Elementary School building is a living creature",
-    items: [],
+      school: {
+        description:
+          "Night Vale Elementary School is the town's only public elementary school. The Night Vale Elementary School building is a living creature",
+        title: "Night Vale Elementary School",
+        items: [],
+      },
+      playground: {
+        description:
+          "The elementary school playground is where students of Night Vale Elementary School go to play during recess. The playground is popular with Hooded Figures,  it is highle recommended not to look at them. The playground is also the site of feral dogs attacks.",
+        title: "Night Vale Elementary School Playground",
+      },
+      dogPark: {
+        title: "The Dog Park",
+        description:
+          "Citizens are not even supposed to be consciously aware of the dog park, so they could not possibly be receiving a menacing and unearthly voice instructing listeners to bring precious metals and toddlers to the dog park! DOG PARK, that could NEVER, EVER BE REAL."
+      },
+      
+    },
   },
-  playground: {
-    description:
-      "The elementary school playground is where students of Night Vale Elementary School go to play during recess. The playground is popular with Hooded Figures,  it is highle recommended not to look at them. The playground is also the site of feral dogs attacks.",
-  },
-}}}
+};
 
 let welcome = `((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
 ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
@@ -88,9 +98,6 @@ const sleep = function (ms): Promise<void> {
   });
 };
 
-//This function should print the very first message with a delay of 3 sec
-
-
 const displayFirst = async function () {
   await sleep(3000);
   console.log(firstScene);
@@ -112,9 +119,9 @@ const questionFirst = async function() {
       }
       console.log(data);
       await displayFirst();
-      await sleep(2000);
+      await sleep(3000);
       console.log(welcome);
-      await sleep(2000);
+      await sleep(3000);
       questionSecond();
     });    
   } else {
@@ -139,7 +146,6 @@ const questionFirst = async function() {
     );
       }}
 
-
 const initialize = function () {
   questionFirst();
 };
@@ -156,25 +162,39 @@ const questionSecond = async function () {
     await sleep(3000);
     const chance = await prompt(`Are you sure that you want to stay here?`);
     if ( chance == "no") {
-      await sleep(2000);
-      console.log(
-        `You are entering Night Vale. ${locations.nightVale.description}`
-      );
+      await sleep(3000);
+      console.log("You are entering Night Vale!\n" + nightValeMessage) ;
+       await sleep(3000);
+       console.log(locations.nightVale.description);
+  
     }
-
-
   } else if (
     answerSecond ==
     locations.nightVale.title) {
     console.log(locations.nightVale.description);
-  }
-   
+  } 
 };
 
 //questionSecond();
 
 const questionThird = async function() {
 
+  const answerThird = await prompt(`Where would you like to go next? 
+  ${locations.nightVale.organizations.school.title}
+  ${locations.nightVale.organizations.playground.title}
+  ${locations.nightVale.organizations.dogPark.title}
+  `);
+  if (answerThird == locations.nightVale.organizations.school.title ) {console.log(locations.nightVale.organizations.school.description);}
+   else if (answerThird == locations.nightVale.organizations.playground.title) {console.log(locations.nightVale.organizations.playground.description);}
+   else if (answerThird == locations.nightVale.organizations.dogPark.title) {
+     console.log(locations.nightVale.organizations.dogPark.description);
+   } else {
+     console.log(`I do not understand what do you mean with ${answerThird}`);
+   }
+  
+
+
+  }
+
   
   
-}
