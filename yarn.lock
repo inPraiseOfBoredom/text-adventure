@@ -769,7 +769,7 @@ ascii-art-graph@0.1.1:
     d3 "^5.14.2"
     json2csv "^4.5.4"
 
-ascii-art-image@1.2.2:
+ascii-art-image@1.2.2, ascii-art-image@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/ascii-art-image/-/ascii-art-image-1.2.2.tgz#378e15d5a76e4044abf76c7823fb061ef1f77bc6"
   integrity sha512-4z7lkgpRrobwsKiSXUtg0tdYPzQ4Y515OuSBvnIbky8xbftSmEh6pFPe6m9Kv1HBkBmfHZXUIuvNOgsXONJlbQ==
